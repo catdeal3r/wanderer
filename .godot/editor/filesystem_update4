@@ -4,3 +4,4 @@ res://pause.tscn
 res://scripts/pause.gd
 res://settings.tscn
 res://scripts/settings.gd
+res://bake_data/world_culled.occ

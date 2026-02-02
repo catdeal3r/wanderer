@@ -48,6 +48,7 @@ alignment = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 mouse_default_cursor_shape = 2
+flat = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Button/Back"]
 clip_contents = false
@@ -73,8 +74,149 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+[node name="LOD" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/LOD"]
+clip_contents = false
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Ground Mesh LOD"
+scroll_active = false
+
+[node name="lod_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/LOD"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 2
+item_count = 3
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+
+[node name="Lighting" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/Lighting"]
+clip_contents = false
+custom_minimum_size = Vector2(157.705, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Lighting Quality (GI)"
+scroll_active = false
+
+[node name="gi_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/Lighting"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 0
+item_count = 3
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+
+[node name="Antialiasing" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/Antialiasing"]
+clip_contents = false
+custom_minimum_size = Vector2(157.705, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Anti-Aliasing Quality"
+scroll_active = false
+
+[node name="antialiasing_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/Antialiasing"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 1
+item_count = 4
+popup/item_0/text = "Off"
+popup/item_0/id = 3
+popup/item_1/text = "2x"
+popup/item_1/id = 0
+popup/item_2/text = "4x"
+popup/item_2/id = 1
+popup/item_3/text = "8x"
+popup/item_3/id = 2
+
+[node name="Vsync" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/Vsync"]
+clip_contents = false
+custom_minimum_size = Vector2(157.705, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "V-Sync"
+scroll_active = false
+
+[node name="vsync_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/Vsync"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Off"
+popup/item_0/id = 1
+popup/item_1/text = "On"
+popup/item_1/id = 2
+
+[node name="Renderdistance" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/Renderdistance"]
+clip_contents = false
+custom_minimum_size = Vector2(157.705, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Render Distance"
+scroll_active = false
+
+[node name="renderdistance_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/Renderdistance"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 1
+item_count = 3
+popup/item_0/text = "Short"
+popup/item_0/id = 1
+popup/item_1/text = "Medium"
+popup/item_1/id = 2
+popup/item_2/text = "Far"
+popup/item_2/id = 2
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button/Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/LOD/lod_dropdown" to="." method="_on_lod_dropdown_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Lighting/gi_dropdown" to="." method="_on_gi_dropdown_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Antialiasing/antialiasing_dropdown" to="." method="_on_antialiasing_dropdown_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Vsync/vsync_dropdown" to="." method="_on_vsync_dropdown_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Renderdistance/renderdistance_dropdown" to="." method="_on_renderdistance_dropdown_item_selected"]
