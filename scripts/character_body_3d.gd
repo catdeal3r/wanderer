@@ -7,7 +7,6 @@ const BOB_AMP = 0.08
 
 var delta_g = 0.0
 var bob = 0.0
-var mouse_captured = false
 var jumping = false
 var speed = 2.0
 var sprint_enabled = true
@@ -17,23 +16,16 @@ var sprint_counter = 0.0
 @onready var camera = $Head/HeadCamera3D
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	mouse_captured = true
+	pass
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle rotation
-	if event is InputEventMouseMotion and mouse_captured:
+	if event is InputEventMouseMotion:
 		# delta added for randomness
 		head.rotate_y(-event.relative.x * SENSITIVITY + sin(delta_g) / 2)
 		camera.rotate_x(-event.relative.y * SENSITIVITY + sin(delta_g) / 2)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(60))
 	
-	if Input.is_action_just_pressed("unlock_mouse") and mouse_captured:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		mouse_captured = false
-	elif Input.is_action_just_pressed("unlock_mouse") and not mouse_captured:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		mouse_captured = true
 
 func _physics_process(delta: float) -> void:
 	delta_g = delta

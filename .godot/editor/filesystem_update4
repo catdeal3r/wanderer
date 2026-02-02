@@ -1,7 +1,6 @@
 res://world.tscn
-res://bake_data/world_culled.occ
-res://scripts/character_body_3d.gd
-res://terrain3d_data/terrain3d_00-01.res
-res://terrain3d_data/terrain3d_00_00.res
-res://terrain3d_data/terrain3d-01_00.res
-res://terrain3d_data/terrain3d-01-01.res
+res://scripts/world.gd
+res://pause.tscn
+res://scripts/pause.gd
+res://settings.tscn
+res://scripts/settings.gd

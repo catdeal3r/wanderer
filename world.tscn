@@ -1,15 +1,18 @@
-[gd_scene load_steps=34 format=4 uid="uid://cv4d2cg3ljqe8"]
+[gd_scene load_steps=36 format=4 uid="uid://cv4d2cg3ljqe8"]
 
 [ext_resource type="Texture2D" uid="uid://bcykd8jrr3p8m" path="res://tex/1k/Rippled_Sand_xd0mda1_1K_BaseColor.jpg" id="1_aqk2v"]
+[ext_resource type="Script" uid="uid://cgaw0xsn4lv15" path="res://scripts/world.gd" id="1_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://c0t0i0mnt21ug" path="res://tex/1k/Rippled_Sand_xd0mda1_1K_Normal.jpg" id="2_036b0"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b84oac8qbtx23" path="res://bake_data/world_culled.occ" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://dtfp4pubbhnjp" path="res://scripts/character_body_3d.gd" id="4_aqk2v"]
 [ext_resource type="AudioStream" uid="uid://dwngbcvlalkim" path="res://sounds/sand-walk.mp3" id="5_036b0"]
 [ext_resource type="AudioStream" uid="uid://c6u23a63w4mwc" path="res://sounds/jump-landing.mp3" id="6_dwbse"]
-[ext_resource type="Texture2D" path="res://models/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_BaseColor.jpg" id="7_wse8f"]
-[ext_resource type="Texture2D" path="res://models/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_AO.jpg" id="8_ic0uy"]
-[ext_resource type="Texture2D" path="res://models/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Normal.jpg" id="9_k3n1d"]
-[ext_resource type="Texture2D" path="res://models/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Roughness.jpg" id="10_2o6r5"]
+[ext_resource type="Texture2D" uid="uid://dontlq5yttiqp" path="res://models/desert_rock/low/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_BaseColor.jpg" id="7_wse8f"]
+[ext_resource type="Texture2D" uid="uid://be0myg5vodwpa" path="res://models/desert_rock/low/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_AO.jpg" id="8_ic0uy"]
+[ext_resource type="Texture2D" uid="uid://wbgshjqe83fm" path="res://models/desert_rock/low/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Normal.jpg" id="9_k3n1d"]
+[ext_resource type="Texture2D" uid="uid://w3a0t5mrsb43" path="res://models/desert_rock/low/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Roughness.jpg" id="10_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://248vhl1cmer8" path="res://pause.tscn" id="12_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://cqyy3j8q4dkvt" path="res://settings.tscn" id="13_2o6r5"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fj7yv"]
 
@@ -106,8 +109,6 @@ uv_scale = 2.0
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_036b0")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_aqk2v")])
 
-[sub_resource type="BoxMesh" id="BoxMesh_dwbse"]
-
 [sub_resource type="Gradient" id="Gradient_tlwt5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
@@ -181,6 +182,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ktff2")
 
 [node name="world" type="Node3D"]
+script = ExtResource("1_ic0uy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aqk2v")
@@ -199,10 +201,6 @@ assets = SubResource("Terrain3DAssets_dwbse")
 mesh_lods = 1
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6174252)
-mesh = SubResource("BoxMesh_dwbse")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 
@@ -249,3 +247,10 @@ skeleton = NodePath("")
 transform = Transform3D(0.9668323, -0.12720767, -0.22148025, 0, 0.86714906, -0.49804896, 0.25541204, 0.4815298, 0.83838767, 0, 1.2379675, -4.1913204)
 mesh = SubResource("ArrayMesh_hiqwa")
 skeleton = NodePath("")
+
+[node name="pause" parent="." instance=ExtResource("12_k3n1d")]
+process_mode = 3
+
+[node name="Settings" parent="." node_paths=PackedStringArray("terrain") instance=ExtResource("13_2o6r5")]
+process_mode = 3
+terrain = NodePath("../Terrain3D")

@@ -1,3 +1,10 @@
+HBoxContainer
+ColorRect
+RichTextLabel
+Button
+VBoxContainer
+MarginContainer
+HSlider
 AudioStreamPlayer3D
 Node3D
 MeshInstance3D
@@ -5,6 +12,3 @@ CharacterBody3D
 GPUParticles3D
 CPUParticles3D
 Camera3D
-OccluderInstance3D
-ReflectionProbe
-Terrain3D

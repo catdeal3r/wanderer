@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkwfuvk1ltnf0"
+uid="uid://wbgshjqe83fm"
 path.s3tc="res://.godot/imported/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Normal.jpg-83a61d8e9b726f359e77cebc6172895e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://models/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Normal.jpg"
+roughness/src_normal="res://models/desert_rock/low/Desert_Western_Rock_Medium_08_uk4cdch_Low_1K_Normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
