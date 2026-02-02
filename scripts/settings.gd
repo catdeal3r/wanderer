@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_back_pressed() -> void:
@@ -77,20 +77,20 @@ func _on_renderdistance_dropdown_item_selected(index: int) -> void:
 
 func _on_fsr_dropdown_item_selected(index: int) -> void:
 	if index == 0:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.0)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 0.0)
 	elif index == 1:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.25)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 0.25)
 	elif index == 2:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.5)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 0.5)
 	elif index == 3:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.75)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 0.75)
 	elif index == 4:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.0)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 1.0)
 	elif index == 5:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.25)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 1.25)
 	elif index == 6:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.5)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 1.5)
 	elif index == 7:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.75)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 1.75)
 	elif index == 8:
-		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 2)
+		RenderingServer.viewport_set_fsr_sharpness(get_tree().get_root().get_viewport_rid(), 2)

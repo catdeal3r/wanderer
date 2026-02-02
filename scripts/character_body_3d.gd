@@ -87,8 +87,8 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _headbob(bob) -> Vector3:
+func _headbob(hbob) -> Vector3:
 	var pos = Vector3.ZERO
-	pos.y = sin(bob * BOB_FREQ) * BOB_AMP
-	pos.x = sin(bob * BOB_FREQ) * BOB_AMP
+	pos.y = sin(hbob * BOB_FREQ) * BOB_AMP
+	pos.x = sin(hbob * BOB_FREQ) * BOB_AMP
 	return pos
