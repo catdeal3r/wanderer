@@ -64,8 +64,33 @@ func _on_vsync_dropdown_item_selected(index: int) -> void:
 
 func _on_renderdistance_dropdown_item_selected(index: int) -> void:
 	if index == 0:
-		camera.far = 30
+		camera.far = 10
 	elif index == 1:
-		camera.far = 4000
+		camera.far = 40
 	elif index == 2:
+		camera.far = 2000
+	elif index == 3:
+		camera.far = 4000
+	elif index == 4:
 		camera.far = 8000
+
+
+func _on_fsr_dropdown_item_selected(index: int) -> void:
+	if index == 0:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.0)
+	elif index == 1:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.25)
+	elif index == 2:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.5)
+	elif index == 3:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 0.75)
+	elif index == 4:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.0)
+	elif index == 5:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.25)
+	elif index == 6:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.5)
+	elif index == 7:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 1.75)
+	elif index == 8:
+		RenderingServer.viewport_set_fsr_sharpness(get_tree(), 2)

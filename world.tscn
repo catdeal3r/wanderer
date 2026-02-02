@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cv4d2cg3ljqe8"]
+[gd_scene load_steps=34 format=4 uid="uid://cv4d2cg3ljqe8"]
 
 [ext_resource type="Texture2D" uid="uid://bcykd8jrr3p8m" path="res://tex/1k/Rippled_Sand_xd0mda1_1K_BaseColor.jpg" id="1_aqk2v"]
 [ext_resource type="Script" uid="uid://cgaw0xsn4lv15" path="res://scripts/world.gd" id="1_ic0uy"]
@@ -37,28 +37,7 @@ volumetric_fog_density = 0.001
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_036b0"]
 
-[sub_resource type="Gradient" id="Gradient_gv5m4"]
-offsets = PackedFloat32Array(0.2, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3sb7"]
-noise_type = 2
-frequency = 0.03
-cellular_jitter = 3.0
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 50.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_lacunarity = 1.5
-domain_warp_fractal_gain = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fj7yv"]
-noise = SubResource("FastNoiseLite_f3sb7")
-color_ramp = SubResource("Gradient_gv5m4")
-seamless = true
-
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_tlwt5"]
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_2o6r5"]
 _shader_parameters = {
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.5,
@@ -74,9 +53,10 @@ _shader_parameters = {
 &"noise1_offset": Vector2(0.5, 0.5),
 &"noise1_scale": 0.04,
 &"noise2_scale": 0.076,
-&"noise_texture": SubResource("NoiseTexture2D_fj7yv"),
+&"noise_texture": null,
 &"projection_threshold": 0.8
 }
+world_background = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
 transparency = 4
@@ -200,8 +180,9 @@ shadow_enabled = true
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://terrain3d_data"
-material = SubResource("Terrain3DMaterial_tlwt5")
+material = SubResource("Terrain3DMaterial_2o6r5")
 assets = SubResource("Terrain3DAssets_dwbse")
+collision_radius = 32
 mesh_lods = 10
 top_level = true
 metadata/_edit_lock_ = true

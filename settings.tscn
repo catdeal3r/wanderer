@@ -206,13 +206,57 @@ size_flags_horizontal = 10
 size_flags_vertical = 4
 flat = true
 selected = 1
-item_count = 3
-popup/item_0/text = "Short"
-popup/item_0/id = 1
-popup/item_1/text = "Medium"
-popup/item_1/id = 2
-popup/item_2/text = "Far"
+item_count = 5
+popup/item_0/text = "Very Short"
+popup/item_0/id = 0
+popup/item_1/text = "Short"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
 popup/item_2/id = 2
+popup/item_3/text = "Far"
+popup/item_3/id = 3
+popup/item_4/text = "Very Far"
+popup/item_4/id = 4
+
+[node name="FSRSetting" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Settings/FSRSetting"]
+clip_contents = false
+custom_minimum_size = Vector2(157.705, 25)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+text = "FSR Amount"
+scroll_active = false
+
+[node name="fsr_dropdown" type="OptionButton" parent="MarginContainer/HBoxContainer/Settings/FSRSetting"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+selected = 0
+item_count = 9
+popup/item_0/text = "Off"
+popup/item_0/id = 1
+popup/item_1/text = "0.25"
+popup/item_1/id = 2
+popup/item_2/text = "0.5"
+popup/item_2/id = 2
+popup/item_3/text = "0.75"
+popup/item_3/id = 3
+popup/item_4/text = "1.0"
+popup/item_4/id = 4
+popup/item_5/text = "1.25"
+popup/item_5/id = 5
+popup/item_6/text = "1.5"
+popup/item_6/id = 6
+popup/item_7/text = "1.75"
+popup/item_7/id = 7
+popup/item_8/text = "2.0"
+popup/item_8/id = 8
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button/Back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/LOD/lod_dropdown" to="." method="_on_lod_dropdown_item_selected"]
@@ -220,3 +264,4 @@ popup/item_2/id = 2
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Antialiasing/antialiasing_dropdown" to="." method="_on_antialiasing_dropdown_item_selected"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Vsync/vsync_dropdown" to="." method="_on_vsync_dropdown_item_selected"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/Renderdistance/renderdistance_dropdown" to="." method="_on_renderdistance_dropdown_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/Settings/FSRSetting/fsr_dropdown" to="." method="_on_fsr_dropdown_item_selected"]
